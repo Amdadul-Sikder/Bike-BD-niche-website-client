@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "name": "Honda CB150R ExMotion",
+        "img": "https://www.rgbbikes.com/wp-content/uploads/2019/12/honda-cb150r.jpg",
+        "description": {
+            "Engine": "149 cc (liq-cooled)",
+            "TopSpeed": "150 Kmph (approx)",
+            "Mileage": "35 Kmpl (combined)"
+        },
+        "price": "550,000 Tk. (ABS)"
+    },
+    {
+        "id": 2,
+        "name": "Honda CBR150R Repsolt",
+        "img": "https://www.mototechindia.com/wp-content/uploads/2020/12/new-honda-cbr-150r.jpg",
+        "description": {
+            "Engine": "149.2 cc (liq-cooled)",
+            "TopSpeed": "160 Kmph (approx)",
+            "Mileage": "35 Kmpl (combined)"
+        },
+        "price": "480,000 (dual ABS)"
+    },
+    {
+        "id": 3,
+        "name": "Yamaha R15M",
+        "img": "https://motonewsworld.com/wp-content/uploads/2021/09/2022-yamaha-r15m-grey-front-right.jpg",
+        "description": {
+            "Engine": "155 cc (liq-cooled)",
+            "TopSpeed": "148 Kmph (approx)",
+            "Mileage": "36 Kmpl (combined)"
+        },
+        "price": "490,000 (dual ABS)"
+    },
+    {
+        "id": 4,
+        "name": "Suzuki GSX R150",
+        "img": "https://www.mototechindia.com/wp-content/uploads/2021/01/suzuki-gsx-r150.jpg",
+        "description": {
+            "Engine": "147.3 cc (liq-cooled)",
+            "TopSpeed": "158 Kmph (approx)",
+            "Mileage": "40 Kmpl (combined)"
+        },
+        "price": "350,000 (dual ABS)"
+    },
+    {
+        "id": 5,
+        "name": "KTM Duke 125",
+        "img": "https://www.ktm.com/ktmgroup-storage/PHO_BIKE_90_RE_125-duke-india-white-90re_%23SALL_%23AEPI_%23V1.jpg",
+        "description": {
+            "Engine": "124.7 cc (liq-cooled)",
+            "TopSpeed": "125 Kmph (approx)",
+            "Mileage": "36 Kmpl (combined)"
+        },
+        "price": "470,000 (dual ABS)"
+    },
+    {
+        "id": 6,
+        "name": "Kawasaki Ninja 125",
+        "img": "https://ic1.maxabout.us/autos/tw_india//2/2021/2/2021-kawasaki-ninja-125.jpg",
+        "description": {
+            "Engine": "125cc cc (liq-cooled)",
+            "TopSpeed": "120 Kmph (approx)",
+            "Mileage": "45 Kmpl (combined)"
+        },
+        "price": "499,000 (dual ABS)"
+    },
+    {
+        "id": 7,
+        "name": "Bajaj Pulsar NS 160 ABS",
+        "img": "https://www.classyprice.com.bd/images/Bajaj-Pulsar-NS-160-fi.jpg",
+        "description": {
+            "Engine": "160.3 cc (oil-cooled)",
+            "TopSpeed": "128 Kmph (approx)",
+            "Mileage": "38 Kmpl (combined)"
+        },
+        "price": "254,900 (Fi, ABS)"
+    },
+    {
+        "id": 8,
+        "name": "Aprilia RS4 125",
+        "img": "https://ic1.maxabout.us/autos/tw_india//A/2015/6/aprilia-rs4-125-black.jpg",
+        "description": {
+            "Engine": "Aprilia RS4 125",
+            "TopSpeed": "122 Kmph (approx)",
+            "Mileage": "35 Kmpl (combined)"
+        },
+        "price": "575,000 (dual disc)"
+    }
+]

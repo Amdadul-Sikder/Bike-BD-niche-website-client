@@ -1,0 +1,36 @@
+.register{
+    height: 100vh;
+    width: 100%;
+    background: #1D4350;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.section-title h4{
+    font-weight: 700;
+}
+.register form input {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ddd;
+}
+
+.register form {
+    min-height: 550px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 40px 60px;
+    margin: 30px 0px;
+}
+.reg-btn{
+    width: 100%;
+}
+.sub-btn{
+    background-color: #39414a !important;
+    color: #fff;
+    margin-top: 20px;
+    width: 100%;
+}

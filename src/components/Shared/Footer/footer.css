@@ -1,0 +1,27 @@
+.footer{
+    background-color: #262828;
+    color: #b3b1a8;
+    padding: 50px 0px;
+    text-align: center;
+}
+.footer h5{
+    color: #fff;
+}
+.footer h5>span {
+    color: rgb(214, 35, 35);
+}
+.footer-icon i.fab {
+    font-size: 30px;
+    padding: 5px;
+    cursor: pointer;
+    transition: .3s;
+    margin: 10px;
+}
+.footer-icon i.fab:hover{
+    color: red;
+    background-color: white;
+}
+.payment-icon img{
+    width: 100%;
+    padding: 20px 0px;
+}
