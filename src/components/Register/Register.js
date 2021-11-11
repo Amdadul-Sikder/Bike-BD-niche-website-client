@@ -1,11 +1,19 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import useAuth from '../Hooks/useAuth';
 import './Register.css'
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { registerUser } = useAuth();
+
+
+    const onSubmit = data => {
+        console.log(data)
+        registerUser(data.email, data.password);
+    };
+
     return (
         <div className="register">
             <div className="container">
@@ -20,7 +28,7 @@ const Register = () => {
                             <input placeholder="Your Name" {...register("name", { required: true })} />
                             <input placeholder="Your Email" {...register("email", { required: true })} />
                             <input placeholder="Your Password" {...register("password")} />
-                            <input placeholder="Confirm Password" {...register("confirmPassword")} />
+                            {/* <input placeholder="Confirm Password" {...register("confirmPassword")} /> */}
 
                             {errors.exampleRequired && <span>This field is required</span>}
 

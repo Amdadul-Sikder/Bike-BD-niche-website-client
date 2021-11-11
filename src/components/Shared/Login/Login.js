@@ -1,12 +1,22 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 import './Login.css'
 
 const Login = () => {
+    const { userLogin } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+
+    const location = useLocation();
+    const history = useHistory();
+
+    const onSubmit = data => {
+        console.log(data)
+        userLogin(data.email, data.password, location, history)
+
+    };
     return (
         <div className="login">
             <div className="container">

@@ -14,39 +14,47 @@ import Header from './components/Shared/Header/Header';
 import About from './components/Home/About/About';
 import Products from './components/Home/Products/Products';
 import Register from './components/Register/Register';
+import AuthProvider from './components/Context/AuthProvider/AuthProvider';
+import Order from './components/Home/Order/Order';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/banner">
-          <Banner />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/products">
-          <Products />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/register">
-          <Register />
-        </Route>
-      </Switch>
-    </Router>
-  );
+    <AuthProvider>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/banner">
+            <Banner />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/products">
+            <Products />
+          </Route>
+          <PrivateRoute path="/order/:orderId">
+            <Order />
+          </PrivateRoute>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+        </Switch>
+      </Router>
+    </AuthProvider>
+  )
 }
 
 export default App;
