@@ -33,9 +33,6 @@ function App() {
           <Route path="/banner">
             <Banner />
           </Route>
-          <Route path="/about">
-            <About />
-          </Route>
           <Route path="/products">
             <Products />
           </Route>

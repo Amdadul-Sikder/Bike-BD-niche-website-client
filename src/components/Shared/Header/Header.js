@@ -22,12 +22,6 @@ const Header = () => {
                             activeStyle={{ color: 'red' }}
                         >HOME</HashLink>
                         <HashLink
-                            to="/about"
-                            className='nav-menu'
-                            activeClassName="selected"
-                            activeStyle={{ color: 'red' }}
-                        >ABOUT US</HashLink>
-                        <HashLink
                             to="/products"
                             className='nav-menu'
                             activeClassName="selected"
