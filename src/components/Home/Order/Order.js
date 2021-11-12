@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 import("./Order.css")
 
 const Order = () => {
@@ -11,7 +12,7 @@ const Order = () => {
     const { orderId } = useParams();
     const { user } = useAuth();
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         console.log(data)
@@ -27,13 +28,21 @@ const Order = () => {
             .then(data => {
                 // console.log(data);
                 if (data.insertedId) {
-                    alert("Order placed succesfully")
+                    // alert("Order placed succesfully")
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Order placed succesfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 }
             })
+        reset();
     };
 
     useEffect(() => {
-        fetch("/products.json")
+        fetch("http://localhost:5000/products")
             .then(res => res.json())
             // .then(data => console.log(data))
             .then(data => setProducts(data))

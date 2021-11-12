@@ -9,7 +9,7 @@ const Products = () => {
     const sliceProduct = products.slice(0, 6);
 
     useEffect(() => {
-        fetch("products.json")
+        fetch("http://localhost:5000/products")
             .then(res => res.json())
             .then(data => setProducts(data));
         // .then(data => console.log(data));
