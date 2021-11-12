@@ -86,5 +86,27 @@
             "Mileage": "35 Kmpl (combined)"
         },
         "price": "575,000 (dual disc)"
+    },
+    {
+        "id": 9,
+        "name": "Aprilia RS4 125",
+        "img": "https://motorcycles-api.runnerautomobiles.com/storage/assets/1116cd52-a9f6-4306-8a55-cd3122b489a0/Black.jpg",
+        "description": {
+            "Engine": "165 cc (air-cooled)",
+            "TopSpeed": "125 Kmph (approx)",
+            "Mileage": "40 Kmpl (combined)"
+        },
+        "price": "165,000 (dual disc)"
+    },
+    {
+        "id": 10,
+        "name": "Keeway Superlight 150",
+        "img": "https://ic1.maxabout.us/autos/tw_india//K/2015/2/keeway-superlight-200-p.jpg",
+        "description": {
+            "Engine": "150 cc (air-cooled)",
+            "TopSpeed": "110 Kmph (approx)",
+            "Mileage": "36 Kmpl (combined)"
+        },
+        "price": "Not Available"
     }
 ]

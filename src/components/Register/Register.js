@@ -1,14 +1,21 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import { useHistory, useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import './Register.css'
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { registerUser } = useAuth();
+    const { registerUser, googleSignIn } = useAuth();
 
+    const location = useLocation();
+    const history = useHistory();
 
+    const handleGoogleSignIn = () => {
+        googleSignIn(location, history)
+    }
     const onSubmit = data => {
         console.log(data)
         registerUser(data.email, data.password);
@@ -34,7 +41,10 @@ const Register = () => {
 
                             <Button className="sub-btn" type="submit">Submit</Button>
                             <p className="py-2 text-center">Or <br />
-                                <Button className="reg-btn" variant="danger">Google Sign In</Button>
+                                <Button onClick={handleGoogleSignIn} className="reg-btn" variant="danger">Google Sign In</Button>
+                            </p>
+                            <p className="py-5 text-center">Allready registered?
+                                <Link className="ms-2" to="login">Please Login</Link>
                             </p>
                         </form>
                     </div>

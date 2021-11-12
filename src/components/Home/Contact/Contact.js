@@ -6,7 +6,7 @@ const Contact = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <div className="contact">
+        <div id="contact" className="contact">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-2"></div>

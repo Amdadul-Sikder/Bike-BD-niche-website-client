@@ -13,6 +13,8 @@ const UseFirebase = () => {
     const auth = getAuth();
 
 
+
+
     // ======== user registration ========//
 
     const registerUser = (email, password, name, history) => {
@@ -20,27 +22,27 @@ const UseFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('')
-                const newUser = { email, displayName: name };
-                setUser(newUser);
-
-                // // save new user to the database
-                // saveUser(email, name, 'POST');
+                const newUser = { email, displayName: name }
+                setUser(newUser)
 
                 //send name to firebase after creation
+
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
                 }).catch((error) => {
                 });
-
                 history.replace("/");
             })
             .catch((error) => {
                 setAuthError(error.message);
-                // ..
             })
             .finally(() => setIsLoading(false));
     };
+
+
+
+
 
 
     //======== user login ========//
@@ -63,7 +65,6 @@ const UseFirebase = () => {
     //======== observe user state ========//
 
     useEffect(() => {
-        const auth = getAuth();
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
@@ -80,6 +81,21 @@ const UseFirebase = () => {
 
     //======== google sign in ========//
 
+    const googleSignIn = (location, history) => {
+        setIsLoading(true);
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                history.replace("/")
+                const user = result.user;
+                setAuthError('');
+            }).catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+
+
+    }
 
 
 
@@ -100,6 +116,7 @@ const UseFirebase = () => {
         user,
         registerUser,
         userLogin,
+        googleSignIn,
         isLoading,
         authError,
         logOut

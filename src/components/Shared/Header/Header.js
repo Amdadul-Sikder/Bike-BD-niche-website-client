@@ -9,26 +9,32 @@ const Header = () => {
     const { user, logOut } = useAuth();
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
             <Container>
                 <HashLink to="/home" className='logo'> BIKE BD </HashLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         <HashLink
-                            to="/home"
+                            to="/home#home"
                             className='nav-menu'
                             activeClassName="selected"
                             activeStyle={{ color: 'red' }}
                         >HOME</HashLink>
                         <HashLink
-                            to="/products"
+                            to="/home#products"
                             className='nav-menu'
                             activeClassName="selected"
                             activeStyle={{ color: 'red' }}
                         >PRODUCTS</HashLink>
                         <HashLink
-                            to="/contact"
+                            to="/explore"
+                            className='nav-menu'
+                            activeClassName="selected"
+                            activeStyle={{ color: 'red' }}
+                        >EXPLORE</HashLink>
+                        <HashLink
+                            to="/home#contact"
                             className='nav-menu'
                             activeClassName="selected"
                             activeStyle={{ color: 'red' }}
@@ -36,7 +42,15 @@ const Header = () => {
 
 
                         {user?.email ?
-                            < Button onClick={logOut} className='nav-menu' variant="outline-light">Logout</Button>
+                            <div>
+                                <HashLink
+                                    to="/dashboard"
+                                    className='nav-menu'
+                                    activeClassName="selected"
+                                    activeStyle={{ color: 'red' }}
+                                >DASHBOARD</HashLink>
+                                < Button onClick={logOut} className='nav-menu' variant="outline-light">Logout</Button>
+                            </div>
                             :
                             <HashLink
                                 to="/login"
@@ -46,7 +60,7 @@ const Header = () => {
                             >LOGIN</HashLink>
                         }
 
-                        <Navbar.Text className='ms-2'>{user?.email}</Navbar.Text>
+                        <Navbar.Text className='ms-2'>{user?.displayName}</Navbar.Text>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

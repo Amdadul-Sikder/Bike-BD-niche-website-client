@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './Products.css'
+import './Explore.css'
 
 
-const Products = () => {
+const Explore = () => {
     const [products, setProducts] = useState([]);
-    const sliceProduct = products.slice(0, 6);
 
     useEffect(() => {
         fetch("products.json")
@@ -17,13 +16,13 @@ const Products = () => {
 
 
     return (
-        <div id="products" className="products">
-            <h4 className="my-5 text-center">OUR LATEST PRODUCTS</h4>
+        <div className="products">
+            <h4 className="my-5 text-center">ALL PRODUCTS</h4>
             <div className="container">
                 <div className="row product-padding">
 
 
-                    {sliceProduct.map(pd => <div key={pd.id} className="col-lg-4">
+                    {products.map(pd => <div className="col-lg-4">
                         <div className="single-product">
                             <div className="product-img">
                                 <img src={pd.img} alt="" />
@@ -46,4 +45,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Explore;

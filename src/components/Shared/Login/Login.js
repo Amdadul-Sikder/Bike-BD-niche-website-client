@@ -6,11 +6,15 @@ import useAuth from '../../Hooks/useAuth';
 import './Login.css'
 
 const Login = () => {
-    const { userLogin } = useAuth();
+    const { userLogin, googleSignIn } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const location = useLocation();
     const history = useHistory();
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(location, history)
+    }
 
     const onSubmit = data => {
         console.log(data)
@@ -32,7 +36,9 @@ const Login = () => {
                             <input placeholder="Your Password" {...register("password")} />
 
                             {errors.exampleRequired && <span>This field is required</span>}
-                            <Button className="sub-btn" type="submit">Submit</Button>
+                            <Button className="sub-btn mb-3" type="submit">Submit</Button>
+                            <Button onClick={handleGoogleSignIn} className="reg-btn" variant="danger">Google Sign In</Button>
+
                             <p className="py-5 text-center">New User?
                                 <Link className="ms-2" to="register">Please Register</Link>
                             </p>

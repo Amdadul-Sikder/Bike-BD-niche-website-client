@@ -7,12 +7,30 @@ import("./Order.css")
 const Order = () => {
 
     const [products, setProducts] = useState([])
-    const [singelProduct, setSingleProduct] = useState({})
+    const [singleProduct, setSingleProduct] = useState({})
     const { orderId } = useParams();
     const { user } = useAuth();
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = data => {
+        console.log(data)
+
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if (data.insertedId) {
+                    alert("Order placed succesfully")
+                }
+            })
+    };
 
     useEffect(() => {
         fetch("/products.json")
@@ -35,17 +53,18 @@ const Order = () => {
                 <div className="row">
                     <div className="col-lg-6">
                         <div className="single-product-details">
-                            <img className="img-fluid" src={singelProduct?.img} alt="" />
-                            <h4 className="mb-4">{singelProduct?.name}</h4>
-                            <p><span className="pd-span">Engine: </span>{singelProduct?.description?.Engine}</p>
-                            <p><span className="pd-span">Top Speed: </span>{singelProduct?.description?.TopSpeed}</p>
-                            <p><span className="pd-span">Mileage: </span>{singelProduct?.description?.Mileage}</p>
-                            <p><span className="pd-span">Price: </span>{singelProduct?.price}</p>
+                            <img className="img-fluid" src={singleProduct?.img} alt="" />
+                            <h4 className="mb-4">{singleProduct?.name}</h4>
+                            <p><span className="pd-span">Engine: </span>{singleProduct?.description?.Engine}</p>
+                            <p><span className="pd-span">Top Speed: </span>{singleProduct?.description?.TopSpeed}</p>
+                            <p><span className="pd-span">Mileage: </span>{singleProduct?.description?.Mileage}</p>
+                            <p><span className="pd-span">Price: </span>{singleProduct?.price}</p>
                         </div>
                     </div>
                     <div className="col-lg-6">
                         <div className="cart">
                             <form onSubmit={handleSubmit(onSubmit)}>
+                                <input placeholder="Product" defaultValue={singleProduct.name} {...register("product")} />
                                 <input placeholder="Name" defaultValue={user.displayName} {...register("name")} />
                                 <input placeholder="Email" defaultValue={user.email} {...register("email")} />
                                 <input required placeholder="Address" defaultValue="" {...register("address")} />

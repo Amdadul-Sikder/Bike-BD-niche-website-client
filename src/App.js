@@ -11,12 +11,15 @@ import Banner from './components/Home/Banner/Banner';
 import Login from './components/Shared/Login/Login';
 import Contact from './components/Home/Contact/Contact';
 import Header from './components/Shared/Header/Header';
-import About from './components/Home/About/About';
 import Products from './components/Home/Products/Products';
 import Register from './components/Register/Register';
 import AuthProvider from './components/Context/AuthProvider/AuthProvider';
 import Order from './components/Home/Order/Order';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Explore from './components/Explore/Explore';
+import Dashboard from './components/Dashboard/Dashboard';
+import Footer from './components/Shared/Footer/Footer';
+import Orders from './components/Dashboard/Orders/Orders';
 
 function App() {
   return (
@@ -35,6 +38,15 @@ function App() {
           </Route>
           <Route path="/products">
             <Products />
+          </Route>
+          <Route path="/explore">
+            <Explore />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/orders">
+            <Orders />
           </Route>
           <PrivateRoute path="/order/:orderId">
             <Order />
