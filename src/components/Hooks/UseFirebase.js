@@ -8,25 +8,27 @@ firebaseInit();
 const UseFirebase = () => {
     const [user, setUser] = useState({})
     const [isLoading, setIsLoading] = useState(true);
-    const [authError, setAuthError] = useState("")
+    const [authError, setAuthError] = useState("");
+    const [admin, setAdmin] = useState(false);
+
 
     const auth = getAuth();
-
-
-
 
     // ======== user registration ========//
 
     const registerUser = (email, password, name, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
+
             .then((userCredential) => {
                 setAuthError('')
                 const newUser = { email, displayName: name }
                 setUser(newUser)
 
-                //send name to firebase after creation
+                //save user to database
+                saveUser(email, name, 'POST');
 
+                //send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
@@ -34,8 +36,10 @@ const UseFirebase = () => {
                 });
                 history.replace("/");
             })
+
             .catch((error) => {
                 setAuthError(error.message);
+                console.log(error);
             })
             .finally(() => setIsLoading(false));
     };
@@ -74,7 +78,7 @@ const UseFirebase = () => {
             setIsLoading(false)
         });
         return () => unsubscribe;
-    }, [])
+    }, [auth])
 
 
 
@@ -86,9 +90,10 @@ const UseFirebase = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
-                history.replace("/")
                 const user = result.user;
+                saveUser(user.email, user.displayName, 'PUT');
                 setAuthError('');
+                history.replace("/")
             }).catch((error) => {
                 setAuthError(error.message);
             })
@@ -111,9 +116,31 @@ const UseFirebase = () => {
     }
 
 
+    // save user information to database
+
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
 
     return {
         user,
+        admin,
         registerUser,
         userLogin,
         googleSignIn,

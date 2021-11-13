@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Rating from 'react-rating';
+import './Review.css'
 
 const Review = () => {
 
@@ -11,6 +13,7 @@ const Review = () => {
                 setReview(data);
             })
     }, [])
+    console.log(review);
 
     return (
         <div className="review  text-center my-5">
@@ -24,11 +27,11 @@ const Review = () => {
                             <h6 className="mb-3">RAKIB HOSSAIN</h6>
                             <p>Great service.This shop is recomended.I heard about the shop from facebook then I visite the shop the authority was so helpful. Nice support.</p>
                             <p>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <Rating
+                                    initialRating={3}
+                                    emptySymbol="far fa-star icon-color"
+                                    fullSymbol="fas fa-star icon-color"
+                                ></Rating>
                             </p>
                         </div>
                     </div>
@@ -37,11 +40,11 @@ const Review = () => {
                             <h6 className="mb-3">HABIB KHAN</h6>
                             <p>Good support.All service is ok.This shop is recomended.I heard about the shop from facebook then I visite the shop the authority was so helpful. Nice support.</p>
                             <p>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <Rating
+                                    initialRating={3}
+                                    emptySymbol="far fa-star icon-color"
+                                    fullSymbol="fas fa-star icon-color"
+                                ></Rating>
                             </p>
                         </div>
                     </div>
@@ -50,20 +53,26 @@ const Review = () => {
                             <h6 className="mb-3">HASAN MAHMUD</h6>
                             <p>I heard about the shop from facebook then I visite the shop the authority was so helpful. Nice support.Good support.All service is ok.This shop is recomended.</p>
                             <p>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <Rating
+                                    initialRating={3}
+                                    emptySymbol="far fa-star icon-color"
+                                    fullSymbol="fas fa-star icon-color"
+                                ></Rating>
+
                             </p>
                         </div>
                     </div>
 
-                    {review.map(pd => <div className="mt-5 col-lg-4">
-                        <h4>{pd.name}</h4>
+                    {review.map(pd => <div key={pd._id} className="mt-5 col-lg-4">
+                        <h6>{pd.name}</h6>
                         <p>{pd.message}</p>
-                    </div>)}
+                        <Rating
+                            initialRating={pd.rating}
+                            emptySymbol="far fa-star icon-color"
+                            fullSymbol="fas fa-star icon-color"
+                        ></Rating>
 
+                    </div>)}
                 </div>
             </div>
         </div>

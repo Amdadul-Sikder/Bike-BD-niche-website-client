@@ -73,9 +73,9 @@ const Order = () => {
                     <div className="col-lg-6">
                         <div className="cart">
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <input placeholder="Product" defaultValue={singleProduct.name} {...register("product")} />
-                                <input placeholder="Name" defaultValue={user.displayName} {...register("name")} />
-                                <input placeholder="Email" defaultValue={user.email} {...register("email")} />
+                                <input placeholder="Product" defaultValue={singleProduct?.name} {...register("product")} />
+                                <input placeholder="Name" defaultValue={user?.displayName} {...register("name")} />
+                                <input placeholder="Email" defaultValue={user?.email} {...register("email")} />
                                 <input required placeholder="Address" defaultValue="" {...register("address")} />
                                 <input required placeholder="Phone Number" defaultValue="" {...register("phone")} />
 

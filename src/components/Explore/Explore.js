@@ -17,12 +17,12 @@ const Explore = () => {
 
     return (
         <div className="products">
-            <h4 className="my-5 text-center">ALL PRODUCTS</h4>
+            <h4 className="my-5 text-center">ALL PRODUCTS:{products.length}</h4>
             <div className="container">
                 <div className="row product-padding">
 
 
-                    {products.map(pd => <div className="col-lg-4">
+                    {products.map(pd => <div key={pd.id} className="col-lg-4">
                         <div className="single-product">
                             <div className="product-img">
                                 <img src={pd.img} alt="" />

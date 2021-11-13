@@ -1,0 +1,17 @@
+.add-product form input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: none;
+    background: #f2f2f2;
+}
+
+.add-product form {
+    width: 50%;
+    margin: 0 auto;
+}
+input.add-pd-btn {
+    background: #1976d2!important;
+    color: #fff!important;
+}

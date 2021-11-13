@@ -17,7 +17,7 @@ const PostReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
             })
         reset();
     };
@@ -28,6 +28,7 @@ const PostReview = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
 
             <input placeholder="Name" {...register("name")} />
+            <input placeholder="Rating" {...register("rating")} />
 
             <input placeholder="message" {...register("message", { required: true })} />
 

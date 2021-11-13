@@ -30,14 +30,16 @@ import Orders from './Orders/Orders';
 import Payment from './Payment/Payment';
 import useAuth from '../Hooks/useAuth';
 import PostReview from './PostReview/PostReview';
+import ManageOrders from './ManageOrders/ManageOrders';
+import AddProduct from './AddProduct/AddProduct';
+import ManageProducts from './ManageProducts/ManageProducts';
 
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
 
-
-    const { logOut, user } = useAuth();
+    const { logOut, user, admin } = useAuth();
     let { path, url } = useRouteMatch();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -56,11 +58,18 @@ function Dashboard(props) {
                 <Link to={`${url}/orders`}><Button className="ms-5">My Orders</Button></Link>
                 <Link to={`${url}/payment`}><Button className="ms-5">Payment</Button></Link>
                 <Link to={`${url}/review`}><Button className="ms-5">Review</Button></Link>
-                <Link to={`${url}/makeAdmin`}><Button className="ms-5">Make Admin</Button></Link>
+
+                {admin && <Box>
+                    <Link to={`${url}/manage_order`}><Button className="ms-5">Manage All Orders</Button></Link>
+                    <Link to={`${url}/add_product`}><Button className="ms-5">Add Product</Button></Link>
+                    <Link to={`${url}/manage_products`}><Button className="ms-5">Manage Products</Button></Link>
+                    <Link to={`${url}/makeAdmin`}><Button className="ms-5">Make Admin</Button></Link>
+                </Box>}
+
                 <Button onClick={logOut} className="ms-5">Log out</Button>
 
             </Box>
-            <List>
+            {/* <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem button key={text}>
                         <ListItemIcon>
@@ -69,7 +78,7 @@ function Dashboard(props) {
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
-            </List>
+            </List> */}
         </div>
     );
 
@@ -159,11 +168,20 @@ function Dashboard(props) {
                     <Route path={`${path}/orders`}>
                         <Orders></Orders>
                     </Route>
+                    <Route path={`${path}/manage_order`}>
+                        <ManageOrders></ManageOrders>
+                    </Route>
                     <Route path={`${path}/review`}>
                         <PostReview></PostReview>
                     </Route>
                     <Route path={`${path}/payment`}>
                         <Payment></Payment>
+                    </Route>
+                    <Route path={`${path}/add_product`}>
+                        <AddProduct></AddProduct>
+                    </Route>
+                    <Route path={`${path}/manage_products`}>
+                        <ManageProducts></ManageProducts>
                     </Route>
                 </Switch>
 
