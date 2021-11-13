@@ -50,11 +50,12 @@ const Order = () => {
 
     useEffect(() => {
         if (products.length > 0) {
-            const singleProduct = products.find(pd => pd.id == orderId)
+            const p = products.find(pd => pd.id == orderId)
             // console.log(singleProduct)
-            setSingleProduct(singleProduct)
+            setSingleProduct(p)
+            reset(p)
         }
-    }, [orderId, products])
+    }, [orderId, products, reset])
 
     return (
         <div className="order-page">
