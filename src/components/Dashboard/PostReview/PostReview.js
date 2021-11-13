@@ -28,7 +28,7 @@ const PostReview = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
 
             <input placeholder="Name" {...register("name")} />
-            <input placeholder="Rating" {...register("rating")} />
+            <input placeholder="Input rating 1 to 5" {...register("rating")} />
 
             <input placeholder="message" {...register("message", { required: true })} />
 

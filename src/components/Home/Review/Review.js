@@ -18,7 +18,7 @@ const Review = () => {
     return (
         <div className="review  text-center my-5">
             <div className="row my-5">
-                <h2>Client reviews</h2>
+                <h3>CLIENT REVIEWS</h3>
             </div>
             <div className="container">
                 <div className="row">
@@ -28,7 +28,7 @@ const Review = () => {
                             <p>Great service.This shop is recomended.I heard about the shop from facebook then I visite the shop the authority was so helpful. Nice support.</p>
                             <p>
                                 <Rating
-                                    initialRating={3}
+                                    initialRating={4.5}
                                     emptySymbol="far fa-star icon-color"
                                     fullSymbol="fas fa-star icon-color"
                                 ></Rating>
@@ -41,7 +41,7 @@ const Review = () => {
                             <p>Good support.All service is ok.This shop is recomended.I heard about the shop from facebook then I visite the shop the authority was so helpful. Nice support.</p>
                             <p>
                                 <Rating
-                                    initialRating={3}
+                                    initialRating={4.1}
                                     emptySymbol="far fa-star icon-color"
                                     fullSymbol="fas fa-star icon-color"
                                 ></Rating>
@@ -54,7 +54,7 @@ const Review = () => {
                             <p>I heard about the shop from facebook then I visite the shop the authority was so helpful. Nice support.Good support.All service is ok.This shop is recomended.</p>
                             <p>
                                 <Rating
-                                    initialRating={3}
+                                    initialRating={4.9}
                                     emptySymbol="far fa-star icon-color"
                                     fullSymbol="fas fa-star icon-color"
                                 ></Rating>
