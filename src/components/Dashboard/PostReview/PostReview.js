@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-
+import './PostReview.css'
 
 const PostReview = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -25,17 +25,19 @@ const PostReview = () => {
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="add-product">
+            <form onSubmit={handleSubmit(onSubmit)}>
 
-            <input placeholder="Name" {...register("name")} />
-            <input placeholder="Input rating 1 to 5" {...register("rating")} />
+                <input placeholder="Name" {...register("name")} />
+                <input placeholder="Input rating 1 to 5" {...register("rating")} />
 
-            <input placeholder="message" {...register("message", { required: true })} />
+                <input className="textarea" placeholder="message" {...register("message", { required: true })} />
 
-            {errors.exampleRequired && <span>This field is required</span>}
+                {errors.exampleRequired && <span>This field is required</span>}
 
-            <input type="submit" />
-        </form>
+                <input className="add-pd-btn" type="submit" />
+            </form>
+        </div>
     );
 };
 

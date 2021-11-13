@@ -19,11 +19,11 @@ const Contact = () => {
                             <input defaultValue="Your Name" {...register("name")} />
                             <input defaultValue="Your Email" {...register("email", { required: true })} />
                             <input defaultValue="Mobile" {...register("mobile")} />
-                            <input defaultValue="Message" {...register("message")} />
+                            <input className="textarea" defaultValue="Message" {...register("message")} />
 
                             {errors.exampleRequired && <span>This field is required</span>}
 
-                            <input type="submit" value="SUBMIT" />
+                            <input className="add-pd-btn" type="submit" value="SUBMIT" />
                         </form>
                     </div>
                     <div className="col-lg-2"></div>
