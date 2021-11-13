@@ -17,7 +17,7 @@ const Order = () => {
     const onSubmit = data => {
         console.log(data)
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://agile-refuge-24136.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -42,7 +42,7 @@ const Order = () => {
     };
 
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://agile-refuge-24136.herokuapp.com/products")
             .then(res => res.json())
             // .then(data => console.log(data))
             .then(data => setProducts(data))

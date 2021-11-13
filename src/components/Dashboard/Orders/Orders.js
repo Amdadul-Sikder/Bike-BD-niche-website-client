@@ -17,7 +17,7 @@ const Orders = () => {
     const [control, setcontrol] = useState(false);
 
     useEffect(() => {
-        const url = `http://localhost:5000/orders?email=${user.email}`
+        const url = `https://agile-refuge-24136.herokuapp.com/orders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -39,7 +39,7 @@ const Orders = () => {
 
 
                 // console.log(id);
-                const url = `http://localhost:5000/deleteOrder/${id}`
+                const url = `https://agile-refuge-24136.herokuapp.com/deleteOrder/${id}`
                 fetch(url, {
                     method: 'DELETE'
                 })
@@ -60,7 +60,7 @@ const Orders = () => {
         })
 
         // // console.log(id);
-        // const url = `http://localhost:5000/deleteOrder/${id}`
+        // const url = `https://agile-refuge-24136.herokuapp.com/deleteOrder/${id}`
         // fetch(url, {
         //     method: 'DELETE'
         // })

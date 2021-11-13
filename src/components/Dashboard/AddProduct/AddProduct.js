@@ -9,7 +9,7 @@ const AddProduct = () => {
 
     const onSubmit = data => {
         console.log(data)
-        fetch('http://localhost:5000/products', {
+        fetch('https://agile-refuge-24136.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

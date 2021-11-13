@@ -10,7 +10,7 @@ const ManageProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://agile-refuge-24136.herokuapp.com/products")
             .then(res => res.json())
             .then(data => setProducts(data));
         // .then(data => console.log(data));
@@ -31,7 +31,7 @@ const ManageProducts = () => {
 
 
                 // console.log(id);
-                const url = `http://localhost:5000/deleteProduct/${id}`
+                const url = `https://agile-refuge-24136.herokuapp.com/deleteProduct/${id}`
                 fetch(url, {
                     method: 'DELETE'
                 })

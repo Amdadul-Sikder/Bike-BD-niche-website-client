@@ -17,8 +17,8 @@ const ManageOrders = () => {
     const [control, setcontrol] = useState(false);
 
     useEffect(() => {
-        // const url = `http://localhost:5000/orders?email=${user.email}`
-        const url = 'http://localhost:5000/all_orders'
+        // const url = `https://agile-refuge-24136.herokuapp.com/orders?email=${user.email}`
+        const url = 'https://agile-refuge-24136.herokuapp.com/all_orders'
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -40,7 +40,7 @@ const ManageOrders = () => {
 
 
                 // console.log(id);
-                const url = `http://localhost:5000/deleteOrder/${id}`
+                const url = `https://agile-refuge-24136.herokuapp.com/deleteOrder/${id}`
                 fetch(url, {
                     method: 'DELETE'
                 })
