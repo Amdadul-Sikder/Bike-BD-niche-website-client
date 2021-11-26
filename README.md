@@ -8,7 +8,8 @@ live Site [https://bike-bd-1c1c0.web.app/](https://bike-bd-1c1c0.web.app/).
 
 * React Based Website
 * React Router & React Hook Form Used
-* Firebase Authentication Used
+* User Authentication feature added
+* Admin feature added.
 * Mongodb Database Used
 * Heroku server Used
 * Responsive Website
